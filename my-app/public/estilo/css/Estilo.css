@@ -1,0 +1,11 @@
+.logoPag {
+    max-width: 80px;
+    border-radius: 50px;
+    background-color: bisque;
+    
+}
+
+.listaHeader {
+    display: flex;
+    list-style-type: none;
+}
