@@ -2,7 +2,6 @@ import React from 'react'
 
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer'
-import Busqueda from './components/Busqueda/Busqueda';
 
 
 import {Route, Switch} from 'react-router-dom'
@@ -10,12 +9,10 @@ import Home from './components/screens/Home/Home'
 import NotFound from './components/screens/NotFound/NotFound'
 
 
-
 function App() {
   return (
     <React.Fragment>
         <Header/>
-        <Busqueda />
         <Switch>
           <Route path='/' exact={true} component={Home}/>
           <Route path='/films' /*component={Films}*//>

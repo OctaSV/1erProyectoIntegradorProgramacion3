@@ -1,0 +1,12 @@
+.notFound{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+}
+
+.notFound h1{
+    font-size: 150px;
+    margin: 0;
+}

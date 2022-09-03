@@ -1,0 +1,15 @@
+.footerInfo{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+    background-color: rgb(18, 17, 17);
+    margin: 0;
+    padding: 20px;
+}
+
+.footerInfo li{
+    color: whitesmoke;
+    text-align: center;
+}
+
