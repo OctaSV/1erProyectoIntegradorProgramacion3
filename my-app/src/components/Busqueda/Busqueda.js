@@ -22,9 +22,9 @@ class Busqueda extends Component{
 
     render(){
         return(
-            <form onSubmit={(evento)=>this.evitarDefault(evento)} className='mb-4'>
-                <input onChange={(evento)=>this.obtenerDatos(evento)} type="text" name="usuario" value={this.state.value} />
-                <button type="submit" > <i className="fa-solid fa-magnifying-glass"></i> </button>
+            <form onSubmit={(evento)=>this.evitarDefault(evento)} className='fa-solid fa-magnifying-glass'>
+                <input onChange={(evento)=>this.obtenerDatos(evento)} type="text" name="usuario" value={this.state.value} className='input'/>
+                <button type="submit" className='botonL' > <i className="fa-solid fa-magnifying-glass"></i> </button>
             </form>
         )
     }
