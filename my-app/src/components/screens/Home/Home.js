@@ -13,11 +13,11 @@ class Home extends Component{
 render() {
     return(
         <React.Fragment>
-            <Search />
-           <Popular />
-
+            <main className="body">
+                <Search />
+                <Popular />
                 <Upcoming/>
-
+            </main>
         </React.Fragment>
     )
 }}

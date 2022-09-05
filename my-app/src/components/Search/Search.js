@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import '../Search/Search.css'
 
 class Busqueda extends Component{
     constructor(props){

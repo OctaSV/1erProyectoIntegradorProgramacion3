@@ -25,20 +25,20 @@ class Popular extends Component {
 
         render () {
             return (
-                <React.Fragment>
-                    <div className="HeadP">
-                        <h1>Populares</h1>
-                        <button className="botonH">Ver todas</button>   
-                    </div>
-                    <section className="listapelis">
-                    {
-                        this.state.peliculasPopulares === 0 ?
-                        <p></p> :
-                        this.state.peliculasPopulares.map( (unaPeli, idx) => <FilmCard id={unaPeli + idx} title={unaPeli.title} img={'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/' + unaPeli.poster_path} info={unaPeli.overview}/> )
-                        
-                    }
-                    </section>
-                </React.Fragment>
+                <section>
+                        <div className="titleFilmsBox">
+                            <h1>Populares</h1>
+                            <button className="botonH">Ver todas</button>   
+                        </div>
+                        <ul className="filmsBox">
+                        {
+                            this.state.peliculasPopulares === 0 ?
+                            <p></p> :
+                            this.state.peliculasPopulares.map( (unaPeli, idx) => <li><FilmCard id={unaPeli + idx} title={unaPeli.title} img={'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/' + unaPeli.poster_path} info={unaPeli.overview}/></li>)
+                            
+                        }
+                        </ul>
+                </section>
 
             ) 
         }

@@ -25,20 +25,21 @@ class Upcoming extends Component {
 
         render () {
             return (
-                <React.Fragment>
-                    <div className="HeadC">
+                <section>
+                    <div className="titleFilmsBox">
                         <h1>Cartelera</h1>
                         <button className="botonH">Ver todas</button>   
                     </div>
-                    <section className="listapelis">
-                    {
-                        this.state.peliculasUpcoming === 0 ?
-                        <p></p> :
-                        this.state.peliculasUpcoming.map( (unaPeli, idx) => <FilmCard id={unaPeli + idx} title={unaPeli.title} img={'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/' + unaPeli.poster_path} info={unaPeli.overview}/> )
-                        
-                    }
+
+                    <section className="filmsBox">
+                        {
+                            this.state.peliculasUpcoming === 0 ?
+                            <p></p> :
+                            this.state.peliculasUpcoming.map( (unaPeli, idx) => <li><FilmCard id={unaPeli + idx} title={unaPeli.title} img={'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/' + unaPeli.poster_path} info={unaPeli.overview}/></li> )
+                                
+                        }
                     </section>
-                </React.Fragment>
+                </section>
 
             ) 
         }

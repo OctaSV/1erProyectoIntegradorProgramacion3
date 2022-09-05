@@ -15,11 +15,11 @@ a {
 body{
     margin: 0;
 }
-body div{
+#root{
     font-family:'Times New Roman', Times, serif;
-    background-color: rgb(29, 27, 27);;
+    background-color: rgb(29, 27, 27);
     display: flex;
     flex-direction: column;
-    height: 100vh;
     justify-content: space-between;
+    color: whitesmoke;
 }

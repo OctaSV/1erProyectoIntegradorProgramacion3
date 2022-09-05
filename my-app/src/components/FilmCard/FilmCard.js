@@ -12,13 +12,13 @@ constructor(props) {
 
 render() {
     return ( 
-        <article className="Peli">
-            <h3 >{this.props.title}</h3>
-            <img alt="imgFilm" src={this.props.img}/>
-            <p>{this.props.info}</p>
-           <button>Ver descripcion</button>
-           <button>Agregar favoritos</button>
-        </article>
+            <ul id="film">
+                <li><h3 >{this.props.title}</h3></li>
+                <li><img alt="imgFilm" src={this.props.img}/></li>
+                <li><p>{this.props.info}</p></li>
+                <li><button>Ver descripcion</button></li>
+                <li><button>Agregar favoritos</button></li>
+            </ul>
     )
 }}
 

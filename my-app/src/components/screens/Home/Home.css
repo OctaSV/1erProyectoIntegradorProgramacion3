@@ -1,27 +1,33 @@
-.HeadP {
+.body{
     display: flex;
-    flex-direction: unset;
-    justify-content: unset;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
 }
 
-.HeadP, .HeadC h1 {
-    color: whitesmoke;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;;
+.body form, section{
+    width: 90%;
 }
-.HeadC {
+
+.titleFilmsBox{
     display: flex;
-    flex-direction: unset;
-    justify-content: unset;
+    align-items: center;
+}
+
+.filmsBox{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.filmsBox li{
+    width: 25%;
 }
 
 .botonH {
     height: fit-content;
-    margin-top: 36px;
     margin-left: 10px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     border-radius: 5px;
-}
-
-.listaPelis {
-    justify-content: space-between;
 }

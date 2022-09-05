@@ -42,21 +42,3 @@ header{
     color: whitesmoke;
 }
 
-
-/* thomas */
-.form {
-    display: flex;
-    height: fit-content;
-    align-self: center;
-    border-radius: 10px;
-}
-
-.input {
-    border: solid 3px cadetblue;
-    border-radius: 5px;
-}
-
-.botonL {
-    border-radius: 5px;
-}
-/* thomas */
