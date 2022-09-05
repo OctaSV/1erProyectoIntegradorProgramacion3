@@ -1,41 +1,25 @@
-import React from "react";
-import './Home.css'
+import React, { Component } from "react";
+import './Home.css';
+import Search from '../../Search/Search.js';
+import Upcoming from "../../Upcoming/Upcoming";
+import Popular from "../../Popular/Popular";
 
 
-function Home(){
+class Home extends Component{
+
+
+
+
+render() {
     return(
         <React.Fragment>
-           <div className="HeadP">
-                <h1>En cartel</h1>
-                <button className="botonH">Ver todas</button>   
-                
-           <ul className="listapelis">
-           <li></li>
-           <li></li>
-           <li></li>
-           <li></li>
-           <li></li>
-           
-           </ul>
+            <Search />
+           <Popular />
 
-           </div>
-
-                <div className="HeadC">
-                <h1>Populares</h1>
-                <button className="botonH">Ver todas</button>
-            <ul className="listapelis">
-
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            </ul>
-
-            </div>
+                <Upcoming/>
 
         </React.Fragment>
     )
-}
+}}
 
 export default Home;

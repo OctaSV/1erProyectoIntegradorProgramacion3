@@ -1,5 +1,4 @@
 import React from 'react'
-import Busqueda from '../Busqueda/Busqueda.js';
 import '../Header/Header.css'
 
 import {Link} from 'react-router-dom'
@@ -29,7 +28,7 @@ function Header() {
                 <li><Link to='/films'>Films</Link></li>
                 <li><Link to='/series'>Series</Link></li>
             </ul>
-            <Busqueda/>
+            
             <ul className='user'>
                 <li><p id='welcome'>user name</p></li>
             </ul>
