@@ -1,24 +1,18 @@
 import React, { Component } from "react";
 import './Home.css';
 import Search from '../../Search/Search.js';
-import Upcoming from "../../Upcoming/Upcoming";
-import Popular from "../../Popular/Popular";
+
+
+import Movies from '../../Movies/Movies'
 
 
 class Home extends Component{
-
-
-
-
 render() {
     return(
-        <React.Fragment>
-            <main className="body">
-                <Search />
-                <Popular />
-                <Upcoming/>
-            </main>
-        </React.Fragment>
+        <section className="body">
+            <Search />
+            <Movies />
+        </section>
     )
 }}
 

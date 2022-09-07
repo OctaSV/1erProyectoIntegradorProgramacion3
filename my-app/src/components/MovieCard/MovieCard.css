@@ -12,3 +12,7 @@
     flex-direction: column;
     align-items: center;
 }
+
+.filmDescription{
+    padding: 20px;
+ }

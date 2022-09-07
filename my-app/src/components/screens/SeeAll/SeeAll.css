@@ -1,0 +1,12 @@
+.form{
+    width: 100%;
+    justify-content: center;
+    padding: 30px 0px;
+}
+
+.form form input{
+    height: 50px;
+    width: 400px;
+    text-align: center;
+    font-size: x-large;
+}
