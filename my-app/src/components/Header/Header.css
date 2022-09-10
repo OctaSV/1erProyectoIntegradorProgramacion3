@@ -7,8 +7,6 @@ header{
 
 .navBar {
     display: flex;
-    flex-wrap: wrap;
-    width: 50%;
     align-items: center;
     margin: 0;
     
