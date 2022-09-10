@@ -16,7 +16,7 @@ class Movies extends Component {
         fetch(urlPopulars)
         .then(response => response.json())
         .then( data => this.setState({
-            moviesPopulares : data.results
+            moviesPopulars : data.results
         }))
         .catch(error => console.log(error))
 
