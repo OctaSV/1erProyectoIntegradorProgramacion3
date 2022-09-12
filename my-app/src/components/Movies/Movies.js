@@ -21,6 +21,15 @@ class Movies extends Component {
         let urlPopulars = 'https://api.themoviedb.org/3/movie/popular?api_key=923e730c041add0f009363ab43cb392a&language=en-US&page=1';
         fetch(urlPopulars)
         .then(response => response.json())
+        .then( data => this.setState({
+            moviesPopulars : data.results
+        }))
+        .catch(error => console.log(error))
+
+        //UpComing
+        let urlUpComing = 'https://api.themoviedb.org/3/movie/upcoming?api_key=923e730c041add0f009363ab43cb392a&language=en-US&page=1';
+        fetch(urlUpComing)
+        .then(response => response.json())
         .then(data => this.setState({
             moviesPopulars: data.results,
             moviesPopularsBkp: data.results

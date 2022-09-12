@@ -29,9 +29,7 @@ function Header() {
                 <li><Link to='/favorites'>Favorites</Link></li>
             </ul>
             
-            <ul className='user'>
-                <li><p id='welcome'>user name</p></li>
-            </ul>
+
             
         </header>
     )

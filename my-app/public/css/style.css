@@ -53,6 +53,9 @@ body section .filmsBox{
     flex-wrap: wrap;
     justify-content: space-around;
 }
+.filmDescription {
+    content-visibility: hidden;
+   }
 
 .filmsBox li{
     width: 24%;
@@ -66,6 +69,7 @@ body section .filmsBox{
     text-align: center;
 }
 
+<<<<<<< HEAD
 .giphyLoader{
     width: 100%;
     height: 100%;
@@ -77,4 +81,34 @@ body section .filmsBox{
     width: 100%;
     height: 100%;
     position: absolute;
+=======
+@media (max-width: 400px) {
+
+* {
+    width: -webkit-fill-available;
+}
+.botonL {
+    width: 20vh;
+}
+.titleFilmsBox h1 {
+    font-size: 30px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+.botonH {
+    font-size: 20px;
+}
+a {
+    font-size: 14px;
+}
+.filmDescription {
+ content-visibility: hidden;
+}
+.filmsBox {
+
+}
+.filmsBox li {
+display: table
+}
+
+>>>>>>> deac2742f3dee28548d9b28effface7d672f2d09
 }
