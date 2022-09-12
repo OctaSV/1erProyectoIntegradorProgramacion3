@@ -16,8 +16,8 @@ function App() {
         <Header/>
         <Switch>
           <Route path='/' exact={true} component={Home}/>
-          <Route path='/allMovies' component={SeeAll}/>
-          {/* <Route path='/allSeries' exact={true} component={SeeAll}/> */}
+          <Route path='/all/billboard' component={SeeAll}/>
+          <Route path='/all/populars' component={SeeAll}/>
           <Route path='/favorites' /*component={Favorites}*//>
           <Route path='' component={NotFound}/>
         </Switch>

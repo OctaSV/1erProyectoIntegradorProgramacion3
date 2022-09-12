@@ -24,9 +24,8 @@ function Header() {
             <ul className='navBar'>
                 <img src='logoPag.png' className='logoPag' alt='logo'></img>
                 <li><Link to='/'>Home</Link></li>
-                <li><Link to='/allMovies'>See all</Link></li>
-                {/* <li><Link to='/allMovies'>Movies</Link></li> */}
-                {/* <li><Link to='/allSeries'>Series</Link></li> */}
+                <li><Link to='/all/billboard'>Billboard</Link></li>
+                <li><Link to='/all/populars'>Populars</Link></li>
                 <li><Link to='/favorites'>Favorites</Link></li>
             </ul>
             
