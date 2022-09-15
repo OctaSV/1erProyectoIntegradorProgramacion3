@@ -11,7 +11,7 @@ const handleClick = () => {
 }
     return ( 
             <ul id="film">
-                <Link to={`movies/detail/${props.id}`}>
+                <Link to={`movie/detail/${props.id}`}>
                     <li className="movieTitle"><h3>{props.title}</h3></li>
                     {props.img.includes(null) ? 
                         <li><div className="styleGiphy"><iframe src="https://giphy.com/embed/21xxijoZGAS4zPpDT9" frameBorder="0" class="giphy-embed" title="giphNoMovie"></iframe></div></li>
