@@ -115,7 +115,7 @@ class Movies extends Component {
                                         </div>                        
                                         <ul className="filmsBox">
                                             {
-                                                this.state.moviesUpComing.slice(0, 4).map((movie, idx) => <li key={movie.title + idx}><MovieCard title={movie.title} img={'https://image.tmdb.org/t/p/w300/' + movie.poster_path} info={movie.overview}/></li> )    
+                                                this.state.moviesUpComing.slice(0, 4).map((movie, idx) => <li key={movie.title + idx}><MovieCard title={movie.title} img={'https://image.tmdb.org/t/p/w300/' + movie.poster_path} info={movie.overview} id={movie.id}/></li> )    
                                             }
                                         </ul>                            
                                         <button className="buttonMore" type="button" onClick={()=> this.moreHome()}>MORE</button>                    
@@ -126,7 +126,7 @@ class Movies extends Component {
                                         </div>
                                         <ul className="filmsBox">
                                             {
-                                                this.state.moviesPopulars.slice(0, 4).map((movie, idx) => <li key={movie.title + idx} ><MovieCard title={movie.title} img={'https://image.tmdb.org/t/p/w300/' + movie.poster_path} info={movie.overview}/></li>)
+                                                this.state.moviesPopulars.slice(0, 4).map((movie, idx) => <li key={movie.title + idx} ><MovieCard title={movie.title} img={'https://image.tmdb.org/t/p/w300/' + movie.poster_path} info={movie.overview} id={movie.id}/></li>)
                                             }
                                         </ul>
                                         <button className="buttonMore" type="button" onClick={()=> this.moreHome()}>MORE</button>
@@ -141,7 +141,7 @@ class Movies extends Component {
                                                 <section className="body">
                                                     <ul className="filmsBox">
                                                     {
-                                                        this.state.moviesUpComing.map((movie, idx) => <li key={movie.title + idx}><MovieCard title={movie.title} img={'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/' + movie.poster_path} info={movie.overview}/></li> )    
+                                                        this.state.moviesUpComing.map((movie, idx) => <li key={movie.title + idx}><MovieCard title={movie.title} img={'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/' + movie.poster_path} info={movie.overview} id={movie.id}/></li> )    
                                                     }
                                                     </ul>
                                                     <button className="buttonMore" type="button" onClick={()=> this.More()}>MORE</button>
@@ -155,7 +155,7 @@ class Movies extends Component {
                                                         <section className="body">
                                                         <ul className="filmsBox">
                                                             {
-                                                                this.state.moviesPopulars.map((movie, idx) => <li key={movie.title + idx}><MovieCard title={movie.title} img={'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/' + movie.poster_path} info={movie.overview}/></li> )    
+                                                                this.state.moviesPopulars.map((movie, idx) => <li key={movie.title + idx}><MovieCard title={movie.title} img={'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/' + movie.poster_path} info={movie.overview} id={movie.id}/></li> )    
                                                             }
                                                         </ul>
                                                         <button className="buttonMore" type="button" onClick={()=> this.More()}>MORE</button>
