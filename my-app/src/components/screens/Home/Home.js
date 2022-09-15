@@ -1,9 +1,10 @@
 import React, { Component } from "react";
+
 import './Home.css';
-import Search from '../../Search/Search.js';
+
+import Search from '../../Form/Search.js';
 import MovieCard from "../../MovieCard/MovieCard";
 import Movies from '../../Movies/Movies'
-
 
 class Home extends Component{
     constructor(){
@@ -21,24 +22,30 @@ searchResults(datos) {
     })
 }
 
-
 render() {
     return(
         <section className="body">
-            <Search buscar={(datos) => this.searchResults(datos)}  />
+            <div className="formAll">
+                <h1 className="titleForm">MOVIES</h1>
+                <Search buscar={(datos) => this.searchResults(datos)} />
+            </div>
             {
                 this.state.busqueda ? 
                     <>
-                        <button  onClick={() => this.setState({busqueda: false})}> Volver </button>
+                        <button className="goBack" onClick={() => this.setState({busqueda: false})}> Go back </button>
                         {
-                            this.state.pelisBuscadas.length === 0 ?
-                            <h1>No se encontraron resultados</h1>
+                                this.state.pelisBuscadas.length === 0 ?
+                                <h1>No se encontraron resultados para tu búsqueda</h1>
                             :
-                            this.state.pelisBuscadas.map((unaPeli, idx) => <MovieCard key={unaPeli.title + idx} title={unaPeli.title} img={'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/' + unaPeli.poster_path} info={unaPeli.overview}/>) 
+                                <ul className="filmsBox">
+                                    {
+                                        this.state.pelisBuscadas.map((unaPeli, idx) => <li key={unaPeli.title + idx}><MovieCard key={unaPeli.title + idx} title={unaPeli.title} img={'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/' + unaPeli.poster_path} info={unaPeli.overview}/></li>) 
+                                    }
+                                </ul>
                         }
                     </>
                 :
-                <><Movies/></>
+                    <Movies />
             }
       </section>
         

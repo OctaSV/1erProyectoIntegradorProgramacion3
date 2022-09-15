@@ -7,7 +7,7 @@ function Footer() {
         <footer>
             <ul className='footerInfo'>
                 <li>Octavio Soncini Viola - Thomas Mendez - Francisco Jofré</li>
-                <li><p>Copyright © Konamipedia 2022</p></li>
+                <li><p>Copyright © LasPelisdePapá 2022</p></li>
             </ul>
         </footer>
     )

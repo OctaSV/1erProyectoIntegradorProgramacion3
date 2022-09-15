@@ -20,7 +20,7 @@ class FormFilter extends Component{
 
     render(){
         return(
-            <form className='formAll' onSubmit={(e)=>this.noDefault(e)} action="submit">
+            <form className='formSeeAll' onSubmit={(e)=>this.noDefault(e)} action="submit">
                 <input placeholder="Search" onChange={(e)=> this.getData(e)} type="text" value={this.state.value.toLocaleUpperCase()} />
             </form>
         )

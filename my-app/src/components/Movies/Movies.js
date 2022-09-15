@@ -4,6 +4,8 @@ import MovieCard from "../MovieCard/MovieCard";
 import Loader from '../Loader/Loader';
 import FormFilter from "../Form/FormFilter";
 
+import {Link} from 'react-router-dom'
+
 class Movies extends Component {
     constructor(props) {
         super(props);
@@ -12,7 +14,9 @@ class Movies extends Component {
             moviesUpComingBkp: [],
             moviesPopulars: [],
             moviesPopularsBkp: [],
-            nextPage: 1
+            nextPage: 1,
+            filmsBillEnd: 4,
+            filmsPopularsEnd: 4
         }
     }
 
@@ -21,19 +25,11 @@ class Movies extends Component {
         let urlPopulars = 'https://api.themoviedb.org/3/movie/popular?api_key=923e730c041add0f009363ab43cb392a&language=en-US&page=1';
         fetch(urlPopulars)
         .then(response => response.json())
-        .then( data => this.setState({
-            moviesPopulars : data.results
-        }))
-        .catch(error => console.log(error))
-
-        //UpComing
-        let urlUpComing = 'https://api.themoviedb.org/3/movie/upcoming?api_key=923e730c041add0f009363ab43cb392a&language=en-US&page=1';
-        fetch(urlUpComing)
-        .then(response => response.json())
         .then(data => this.setState({
             moviesPopulars: data.results,
             moviesPopularsBkp: data.results
         }))
+        .catch(error => console.log(error))
         .then(() => {
             //Upcoming
             let urlUpComing = 'https://api.themoviedb.org/3/movie/upcoming?api_key=923e730c041add0f009363ab43cb392a&language=en-US&page=1';
@@ -46,6 +42,8 @@ class Movies extends Component {
             .catch(error => console.log(error))
             })
         .catch(error => console.log(error))
+
+        console.log(this.state);
     }
 
     More() {
@@ -75,9 +73,17 @@ class Movies extends Component {
             .catch(error => console.log(error))
     }
 
-/*     moreHome(){
-        
-    } */
+    morePopulars(){
+        this.setState({
+            filmsPopularsEnd: this.state.filmsPopularsEnd + 4
+        })
+    }
+
+    moreBill(){
+        this.setState({
+            filmsBillEnd: this.state.filmsBillEnd + 4
+        })
+    }
 
     movieFilter(filteredText){
         let moviesPopularsFiltered = this.state.moviesPopularsBkp.filter((oneMovie)=> oneMovie.title.toLowerCase().includes(filteredText.toLowerCase()))
@@ -90,21 +96,9 @@ class Movies extends Component {
 
     render () {
         console.log(this.state);
+        console.log(this.props.busqueda)
         return(
             <React.Fragment>
-                {
-                    this.props.movieType === '/all/billboard' || this.props.movieType === '/all/populars' ?
-                        <div className="formAll">
-                            <FormFilter movieFilter={(filteredText)=> this.movieFilter(filteredText)}/>
-                        </div>
-                    :
-                    false
-                }
-                {
-                    this.state.moviesPopulars.length === 0 && this.state.moviesUpComing.length === 0 ?
-                        <Loader/>
-                    :
-                    <>
                         {
                             //HOME
                             this.props.movieType === undefined ?
@@ -115,10 +109,15 @@ class Movies extends Component {
                                         </div>                        
                                         <ul className="filmsBox">
                                             {
-                                                this.state.moviesUpComing.slice(0, 4).map((movie, idx) => <li key={movie.title + idx}><MovieCard title={movie.title} img={'https://image.tmdb.org/t/p/w300/' + movie.poster_path} info={movie.overview}/></li> )    
+                                                this.state.moviesUpComing.slice(0, this.state.filmsBillEnd).map((movie, idx) => <li key={movie.title + idx}><MovieCard title={movie.title} img={'https://image.tmdb.org/t/p/w300/' + movie.poster_path} info={movie.overview}/></li>)    
                                             }
                                         </ul>                            
-                                        <button className="buttonMore" type="button" onClick={()=> this.moreHome()}>MORE</button>                    
+                                        {
+                                            this.state.filmsBillEnd >= 20 ?
+                                            <Link to="/all/billboard"><button className="buttonMore">ALL</button></Link>
+                                            :
+                                            <button className="buttonMore" type="button" onClick={()=> this.moreBill()}>MORE</button>
+                                        }                  
                                     </section>
                                     <section>
                                         <div className="titleFilmsBox">
@@ -126,10 +125,15 @@ class Movies extends Component {
                                         </div>
                                         <ul className="filmsBox">
                                             {
-                                                this.state.moviesPopulars.slice(0, 4).map((movie, idx) => <li key={movie.title + idx} ><MovieCard title={movie.title} img={'https://image.tmdb.org/t/p/w300/' + movie.poster_path} info={movie.overview}/></li>)
+                                                this.state.moviesPopulars.slice(0, this.state.filmsPopularsEnd).map((movie, idx) => <li key={movie.title + idx} ><MovieCard title={movie.title} img={'https://image.tmdb.org/t/p/w300/' + movie.poster_path} info={movie.overview}/></li>)
                                             }
                                         </ul>
-                                        <button className="buttonMore" type="button" onClick={()=> this.moreHome()}>MORE</button>
+                                        {
+                                            this.state.filmsPopularsEnd >= 20 ?
+                                            <Link to="/all/populars"><button className="buttonMore">ALL</button></Link>
+                                            :
+                                            <button className="buttonMore" type="button" onClick={()=> this.morePopulars()}>MORE</button>
+                                        }
                                     </section>
                                 </>
                             :
@@ -137,39 +141,55 @@ class Movies extends Component {
                                     {
                                         //ALL BILLBOARDS FILMS
                                         this.props.movieType === '/all/billboard' ?
-                                            <>
-                                                <section className="body">
-                                                    <ul className="filmsBox">
-                                                    {
-                                                        this.state.moviesUpComing.map((movie, idx) => <li key={movie.title + idx}><MovieCard title={movie.title} img={'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/' + movie.poster_path} info={movie.overview}/></li> )    
-                                                    }
-                                                    </ul>
-                                                    <button className="buttonMore" type="button" onClick={()=> this.More()}>MORE</button>
-                                                </section>
-                                            </>
+                                            <section className="body">
+                                                <div className="formAll">
+                                                    <h1 className="titleForm">BILLBOARD MOVIES</h1>
+                                                    <FormFilter movieFilter={(filteredText)=> this.movieFilter(filteredText)}/>
+                                                </div>
+                                                {this.state.moviesUpComing.length === 0 ?
+                                                    <Loader/>
+                                                :
+                                                    <>
+                                                        <ul className="filmsBox">
+                                                            {
+                                                                this.state.moviesUpComing.map((movie, idx) => <li key={movie.title + idx}><MovieCard title={movie.title} img={'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/' + movie.poster_path} info={movie.overview}/></li> )    
+                                                            }
+                                                        </ul>
+                                                        <button className="buttonMore" type="button" onClick={()=> this.More()}>MORE</button>
+                                                    </>
+                                                }
+                                            </section>
                                         : 
                                             <>
                                                 {
                                                     //ALL POPULARS FILMS
                                                     this.props.movieType === '/all/populars' ?
                                                         <section className="body">
-                                                        <ul className="filmsBox">
-                                                            {
-                                                                this.state.moviesPopulars.map((movie, idx) => <li key={movie.title + idx}><MovieCard title={movie.title} img={'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/' + movie.poster_path} info={movie.overview}/></li> )    
+                                                            <div className="formAll">
+                                                                <h1 className="titleForm">POPULARS MOVIES</h1>
+                                                                <FormFilter movieFilter={(filteredText)=> this.movieFilter(filteredText)}/>
+                                                            </div>
+                                                            {this.state.moviesPopulars.length === 0 ?
+                                                                <Loader/>
+                                                            :
+                                                                <>
+                                                                    <ul className="filmsBox">
+                                                                        {
+                                                                            this.state.moviesPopulars.map((movie, idx) => <li key={movie.title + idx}><MovieCard title={movie.title} img={'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/' + movie.poster_path} info={movie.overview}/></li> )    
+                                                                        }
+                                                                    </ul>
+                                                                    <button className="buttonMore" type="button" onClick={()=> this.More()}>MORE</button>
+                                                                </>
                                                             }
-                                                        </ul>
-                                                        <button className="buttonMore" type="button" onClick={()=> this.More()}>MORE</button>
-                                                        </section>
+                                                        </section>                                                      
                                                     :
-                                                    false
+                                                        false
                                                 }
                                             </> 
-                                    }  
-                                </>
+                                        }  
+                                    </>
                             
-                            }
-                    </>
-                }
+                            } 
             </React.Fragment>
         )
     }

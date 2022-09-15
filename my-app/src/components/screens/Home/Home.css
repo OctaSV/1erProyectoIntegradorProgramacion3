@@ -5,7 +5,23 @@
     border-radius: 5px;
 }
 
-.buttonMore{
+.formSearch button{
+    height: 40px;
+}
+
+.inputSearch{
+    height: 40px !important;
+    width: 250px !important;
+    text-align: center;
+    font-size:medium !important
+}
+
+.goBack{
+    margin: 10px;
+    border-radius: 100px;
+}
+
+.buttonMoreAll{
     width: 100%;
     background-color: transparent; 
     border-color: #353535;
@@ -20,6 +36,6 @@
     margin-top: 0px;
 }
 
-.buttonMore:hover{
+.buttonMoreAll:hover{
     background-color: #35353550;
 }

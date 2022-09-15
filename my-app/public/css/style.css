@@ -15,7 +15,13 @@ a {
 body{
     margin: 0;
 }
+
+
 #root{
+    background-image: url('/images/poster.jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
     font-family:'Times New Roman', Times, serif;
     background-color: #D9D9D9;
     display: flex;
@@ -31,14 +37,51 @@ body{
     flex-direction: column;
     width: 100%;
     align-items: center;
-    color: black;
+    color: whitesmoke;
 }
 
-.body form, section{
+.body section{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+.formAll{
+    background-image: url('/images/miguel-carraca-rzkDgukJaFQ-unsplash.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 250px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.formAll form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.formAll form input{
+    height: 50px;
+    width: 400px;
+    text-align: center;
+    font-size: x-large;
+}
+
+.titleForm{
+    color: cornsilk;
+    font-size: 30px;
+    margin-top: 0;
+}
+
+.titleFilmsBox h1{
+    color: cornsilk;
+    font-size: 30px;
 }
 
 .titleFilmsBox{
@@ -53,7 +96,6 @@ body section .filmsBox{
     flex-wrap: wrap;
     justify-content: space-around;
 }
-
 
 .filmsBox li{
     width: 24%;
@@ -72,13 +114,32 @@ body section .filmsBox{
     height: 100%;
     position: relative;
 }
-
-    
+  
 .loaderFrame{
     width: 100%;
     height: 100%;
     position: absolute;
 }
+
+.buttonMore{
+    color: whitesmoke;
+    width: 20%;
+    background-color: rgba(245, 245, 245, 0.22);
+    border-color: whitesmoke;
+    padding: 5px 12px;
+    font-size: 20px;
+    margin: 40px 2px;
+    border-radius: 5px;
+    margin-top: 0px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+
+.buttonMore:hover{
+    background-color: #be2722;
+    color: whitesmoke;
+}
+
 @media (max-width: 400px) {
 
 * {

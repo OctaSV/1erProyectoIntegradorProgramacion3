@@ -1,14 +1,11 @@
 import React, { useState } from "react";
-import './MovieCard.css'
 
+import './MovieCard.css'
 
 function MovieCard (props){
     
-const [isActive, setIsActive] = useState(false)
+    const [isActive, setIsActive] = useState(false)
 
-const handleClick = () => {
- //   setIsActive(current => !current)
-}
     return ( 
             <ul id="film">
                 <li className="movieTitle"><h3>{props.title}</h3></li>
@@ -17,11 +14,13 @@ const handleClick = () => {
                 :
                     <li className="movieImg"><img alt="imgFilm" src={props.img}/></li>
                 }
-                {/*<li><img alt="imgFilm" src={props.img !== null ? props.img : props}/></li>*/}             
-                <li className="filmDescription" style={{display: isActive ? 'block' : 'none'}}>{props.info}</li>
-                <div className="buttonscards">
-                <li onClick={handleClick}><button onClick={() => setIsActive(!isActive)} className='buttonscards'> {isActive ? 'Hide Extra' : 'Extra'}   </button> 
-                 <button className="buttonscards">Add Favorites</button></li> </div>
+                <li className="filmDescription" style={{display: isActive ? 'block' : 'none'}}>{props.info !== '' ? props.info : 'Nothing to see'}</li>
+                <li>
+                    <div className="buttonsCards">
+                        <button onClick={() => setIsActive(!isActive)} className='buttonCardsB'> {isActive ? <i class="fa-solid fa-xmark"></i> : <i class="fa-solid fa-align-justify"></i>}</button> 
+                        <button className="buttonCardsB"><i class="fa-regular fa-heart"></i></button> 
+                    </div>
+                </li>
             </ul>
     )
 }

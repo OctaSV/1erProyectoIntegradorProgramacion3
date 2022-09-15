@@ -50,7 +50,7 @@ class SeeAll extends Component{
 
     render(){
       return(
-          <Movies movieType={this.props.location.pathname}/>
+          <Movies more={()=> this.More()} movieType={this.props.location.pathname}/>
       )
     }
 

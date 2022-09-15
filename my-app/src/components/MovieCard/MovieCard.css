@@ -5,6 +5,8 @@
     flex-direction: column;
     justify-content: space-between;
     min-height: 100%;
+    border-radius: 5px;
+    background-color: #555557a5;
     box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15);
 }
 
@@ -31,7 +33,18 @@
     height: 30%;
  }
 
-.buttonsCards{
-    justify-content: space-around;
-    min-height: 10vh;
+.buttonCardsB {
+    margin: 10px;
+    width: 40%;
+    background-color: whitesmoke;
+    border-color: #be2722;
+    box-shadow: 3px 3px grey;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    border-radius: 5px;
+}
+
+.buttonCardsB:hover {
+    background-color: #be2722;
+    color: white;
 }
