@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 class Genres extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -41,5 +40,4 @@ class Genres extends Component {
         }
 } 
 
-
-export default Genres
+export default Genres;

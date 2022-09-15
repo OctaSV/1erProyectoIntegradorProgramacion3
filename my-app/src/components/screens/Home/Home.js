@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import './Home.css';
 
-import Search from '../../Form/Search.js';
+import Search from '../../Forms/Search/Search.js';
 import MovieCard from "../../MovieCard/MovieCard";
 import Movies from '../../Movies/Movies'
 

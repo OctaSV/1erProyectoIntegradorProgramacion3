@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import MovieCard from "../MovieCard/MovieCard";
 import Loader from '../Loader/Loader';
-import FormFilter from "../Form/FormFilter";
+import FormFilter from "../Forms/FormFilter/FormFilter";
 
 import {Link} from 'react-router-dom'
 
@@ -103,38 +103,44 @@ class Movies extends Component {
                             //HOME
                             this.props.movieType === undefined ?
                                 <>
-                                    <section>
-                                        <div className="titleFilmsBox">
-                                            <h1>BILLBOARDS</h1>
-                                        </div>                        
-                                        <ul className="filmsBox">
-                                            {
-                                                this.state.moviesUpComing.slice(0, this.state.filmsBillEnd).map((movie, idx) => <li key={movie.title + idx}><MovieCard title={movie.title} img={'https://image.tmdb.org/t/p/w300/' + movie.poster_path} info={movie.overview}/></li>)    
-                                            }
-                                        </ul>                            
-                                        {
-                                            this.state.filmsBillEnd >= 20 ?
-                                            <Link to="/all/billboard"><button className="buttonMore">ALL</button></Link>
-                                            :
-                                            <button className="buttonMore" type="button" onClick={()=> this.moreBill()}>MORE</button>
-                                        }                  
-                                    </section>
-                                    <section>
-                                        <div className="titleFilmsBox">
-                                            <h1>POPULARS</h1>
-                                        </div>
-                                        <ul className="filmsBox">
-                                            {
-                                                this.state.moviesPopulars.slice(0, this.state.filmsPopularsEnd).map((movie, idx) => <li key={movie.title + idx} ><MovieCard title={movie.title} img={'https://image.tmdb.org/t/p/w300/' + movie.poster_path} info={movie.overview}/></li>)
-                                            }
-                                        </ul>
-                                        {
-                                            this.state.filmsPopularsEnd >= 20 ?
-                                            <Link to="/all/populars"><button className="buttonMore">ALL</button></Link>
-                                            :
-                                            <button className="buttonMore" type="button" onClick={()=> this.morePopulars()}>MORE</button>
-                                        }
-                                    </section>
+                                    {this.state.moviesPopulars.length === 0 || this.state.moviesUpComing.length === 0 ?
+                                        <Loader/>
+                                    :
+                                        <>
+                                            <section>
+                                                <div className="titleFilmsBox">
+                                                    <h1>BILLBOARDS</h1>
+                                                </div>                        
+                                                <ul className="filmsBox">
+                                                    {
+                                                        this.state.moviesUpComing.slice(0, this.state.filmsBillEnd).map((movie, idx) => <li key={movie.title + idx}><MovieCard title={movie.title} img={'https://image.tmdb.org/t/p/w300/' + movie.poster_path} info={movie.overview}/></li>)    
+                                                    }
+                                                </ul>                            
+                                                {
+                                                    this.state.filmsBillEnd >= 20 ?
+                                                    <Link to="/all/billboard"><button className="buttonMore">ALL</button></Link>
+                                                    :
+                                                    <button className="buttonMore" type="button" onClick={()=> this.moreBill()}>MORE</button>
+                                                }                  
+                                            </section>
+                                            <section>
+                                                <div className="titleFilmsBox">
+                                                    <h1>POPULARS</h1>
+                                                </div>
+                                                <ul className="filmsBox">
+                                                    {
+                                                        this.state.moviesPopulars.slice(0, this.state.filmsPopularsEnd).map((movie, idx) => <li key={movie.title + idx} ><MovieCard title={movie.title} img={'https://image.tmdb.org/t/p/w300/' + movie.poster_path} info={movie.overview}/></li>)
+                                                    }
+                                                </ul>
+                                                {
+                                                    this.state.filmsPopularsEnd >= 20 ?
+                                                    <Link to="/all/populars"><button className="buttonMore">ALL</button></Link>
+                                                    :
+                                                    <button className="buttonMore" type="button" onClick={()=> this.morePopulars()}>MORE</button>
+                                                }
+                                            </section>
+                                        </>
+                                    }
                                 </>
                             :
                                 <>

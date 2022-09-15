@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import '../SeeAll/SeeAll.css'
+import '../AllMovies/AllMovies.css'
 
 import Movies from "../../Movies/Movies";
 
@@ -45,7 +45,7 @@ class SeeAll extends Component{
                   ))
                   .catch(error => console.log(error))              
             })
-            .catch(error => console.log(error))
+          .catch(error => console.log(error))
     }
 
     render(){
