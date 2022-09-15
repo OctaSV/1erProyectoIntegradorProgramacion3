@@ -22,20 +22,17 @@
 }
 
 .buttonMoreAll{
+    color: whitesmoke;
     width: 100%;
-    background-color: transparent; 
-    border-color: #353535;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
+    background-color: rgba(245, 245, 245, 0.22); 
+    border-color: whitesmoke;
+    padding: 5px 12px;
     font-size: 20px;
     margin: 40px 2px;
-    cursor: pointer;
-    border-radius: 10px;
     margin-top: 0px;
 }
 
 .buttonMoreAll:hover{
-    background-color: #35353550;
+    background-color: #be2722;
+    color: whitesmoke;
 }

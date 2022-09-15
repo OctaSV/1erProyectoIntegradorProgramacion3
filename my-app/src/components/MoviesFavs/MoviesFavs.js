@@ -21,7 +21,7 @@ class MoviesFavs extends Component {
 
             let peliculas = [];
 
-            favoritos.map(unIdDelArray => {
+            favoritos.map(unIdDelArray => (
             fetch(`https://api.themoviedb.org/3/movie/${unIdDelArray}?api_key=d1566b6a7005fc1288c0cf8495a15e2e&language=en-US`)
             .then(response => response.json())
             .then(info => {
@@ -31,7 +31,7 @@ class MoviesFavs extends Component {
                 })
             })
             .catch(err => console.log(err)) 
-            })
+            ))
 
             console.log(peliculas);
 
