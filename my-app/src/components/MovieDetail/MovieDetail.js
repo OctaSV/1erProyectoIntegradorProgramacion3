@@ -1,17 +1,15 @@
 import React, { Component } from 'react'
-import {Route, Switch, Link} from 'react-router-dom'
+
 
 class MovieDetail extends Component {
-
-    
-
     constructor(props){
         super(props);
         this.state = {
             id: Number(props.match.params.id),
             dataMovie: {
                 genres: []
-            }
+            },
+            favText: 'Agregar a favoritos',
         }
     };
 
@@ -22,6 +20,55 @@ class MovieDetail extends Component {
             dataMovie: info
         }, () => console.log(info)))
         .catch(err => console.log(err))
+
+        let favoritos = [];
+        let recuperoStorage = localStorage.getItem('favoritos');
+
+        if (recuperoStorage !== null) {
+            let storageToArray = JSON.parse(recuperoStorage);
+            favoritos = storageToArray
+
+            if (favoritos.includes(this.state.id)) {
+                this.setState({
+                    favText: 'Quitar de favoritos'
+                })
+            } else {
+                this.setState({
+                    favText: 'Agregar a favoritos'
+                })
+            }
+        }
+    }
+
+    agregarQuitarFavs(id){
+        // console.log('agregando y quitando');
+
+        let favoritos = [];
+        let recuperoStorage = localStorage.getItem('favoritos');
+
+        if (recuperoStorage !== null) {
+            let storageToArray = JSON.parse(recuperoStorage);
+            favoritos = storageToArray
+        }
+
+        if (favoritos.includes(id)) {
+            // favoritos = favoritos.filter(unIdDelArray => unIdDelArray !== id) //FORMA 1//
+            let idAQuitar = favoritos.indexOf(id);
+            favoritos.splice(idAQuitar, 1);
+            this.setState({
+                favText: 'Agregar a favoritos'
+            })
+        } else {
+            favoritos.push(id);
+            this.setState({
+                favText: 'Quitar de favoritos'
+            })
+        }
+
+        let favsToString = JSON.stringify(favoritos)
+        localStorage.setItem('favoritos', favsToString)
+
+        console.log(localStorage);
     }
 
     render(){
@@ -38,6 +85,7 @@ class MovieDetail extends Component {
                         Generos: {this.state.dataMovie.genres.map((generoUno, i) => <li key = {generoUno.id + i}> {generoUno.name} </li>)}
                     </ul>
                 </ul>
+                <button onClick={() => this.agregarQuitarFavs(this.state.id)}>{this.state.favText}</button>
             </React.Fragment>
             
         )
