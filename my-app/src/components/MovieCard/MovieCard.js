@@ -1,34 +1,106 @@
-import React, { useState } from "react";
-
+import React, { Component } from "react";
 import './MovieCard.css'
+import { Link } from 'react-router-dom'
 
-function MovieCard (props){
-    
-    const [isActive, setIsActive] = useState(false)
+class MovieCard extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            favText: <i class="fa-regular fa-heart"></i>,
+            verDesc: false
+        }
+    };
 
-    return ( 
-            <ul id="film">
-                <li className="movieTitle">
-                    <h3>{props.title}</h3>
-                </li>
-                {props.img.includes(null) ? 
-                    <li>
-                        <div className="styleGiphy">
-                            <iframe src="https://giphy.com/embed/21xxijoZGAS4zPpDT9" frameBorder="0" class="giphy-embed" title="giphNoMovie"></iframe>
-                        </div>
-                    </li>
-                :
-                    <li className="movieImg"><img alt="imgFilm" src={props.img}/></li>
-                }
-                <li className="filmDescription" style={{display: isActive ? 'block' : 'none'}}>{props.info !== '' ? props.info : 'Nothing to see'}</li>
-                <li>
-                    <div className="buttonsCards">
-                        <button onClick={() => setIsActive(!isActive)} className='buttonCardsB'> {isActive ? <i class="fa-solid fa-xmark"></i> : <i class="fa-solid fa-align-justify"></i>}</button> 
-                        <button className="buttonCardsB"><i class="fa-regular fa-heart"></i></button> 
+    mostrar(){
+        this.setState( {verDesc: true} )
+    }
+    esconder(){
+        this.setState({verDesc: false} )
+    }
+
+    componentDidMount(){
+        let favoritos = [];
+        let recuperoStorage = localStorage.getItem('favoritos');
+        if (recuperoStorage !== null) {
+            let storageToArray = JSON.parse(recuperoStorage);
+            favoritos = storageToArray
+
+            if (favoritos.includes(this.props.id)) {
+                this.setState({
+                    favText: <i class="fa-regular fa-heart"></i>
+                })
+            } else {
+                this.setState({
+                    favText: <i class="fa-regular fa-heart"></i>
+                })
+            }
+        }
+    }
+
+    agregarQuitarFavs(id){
+        // console.log('agregando y quitando');
+
+        let favoritos = [];
+        let recuperoStorage = localStorage.getItem('favoritos');
+
+        if (recuperoStorage !== null) {
+            let storageToArray = JSON.parse(recuperoStorage);
+            favoritos = storageToArray
+        }
+
+        if (favoritos.includes(this.props.id)) {
+            // favoritos = favoritos.filter(unIdDelArray => unIdDelArray !== id) //FORMA 1//
+            let idAQuitar = favoritos.indexOf(this.props.id);
+            favoritos.splice(idAQuitar, 1);
+            this.setState({
+                favText: <i class="fa-regular fa-heart"></i>
+            })
+        } else {
+            favoritos.push(this.props.id);
+            this.setState({
+                favText: <i class="fa-regular fa-heart"></i>
+            })
+        }
+
+        let favsToString = JSON.stringify(favoritos)
+        localStorage.setItem('favoritos', favsToString)
+
+        console.log(localStorage);
+    }
+
+    render(){
+        return ( 
+                <ul id="film">
+                    <Link to={`/movie/detail/${this.props.id}`}>
+                        <li className="movieTitle">
+                            <h3>{this.props.title}</h3>
+                        </li>
+                        {this.props.img.includes(null) ? 
+                            <li>
+                                <div className="styleGiphy">
+                                    <iframe src="https://giphy.com/embed/21xxijoZGAS4zPpDT9" frameBorder="0" class="giphy-embed" title="giphNoMovie"></iframe>
+                                </div>
+                            </li>
+                        :
+                            <li className="movieImg"><img alt="imgFilm" src={this.props.img}/></li>
+                        }
+                        {/*<li><img alt="imgFilm" src={props.img !== null ? props.img : props}/></li>*/}             
+                    </Link>
+                    <div className="buttonscards">
+                        {this.state.verDesc ? 
+                        <section>                            
+                            <li className="filmDescription">Overview: {this.props.info}</li> 
+                            <button className='buttonCardsB' onClick={() => this.esconder()}><i class="fa-solid fa-xmark"></i></button>
+                        </section>
+                        :                                                 
+                        <button className='buttonCardsB' onClick={() => this.mostrar()}><i class="fa-solid fa-align-justify"></i></button>                           
+                        } 
+                        <button onClick={() => this.agregarQuitarFavs(this.props.id)} className="buttonCardsB">{this.state.favText}</button>
                     </div>
-                </li>
-            </ul>
-    )
+                    
+                </ul>
+        )
+    }
 }
 
 export default MovieCard;
