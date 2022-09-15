@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import MovieCard from '../MovieCard/MovieCard'
+import MovieCard from '../MovieCard/MovieCard'
 
 class MoviesFavs extends Component {
     constructor(){
@@ -18,6 +18,23 @@ class MoviesFavs extends Component {
             favoritos = storageToArray
 
             console.log(favoritos);
+
+            let peliculas = [];
+
+            favoritos.map(unIdDelArray => {
+            fetch(`https://api.themoviedb.org/3/movie/${unIdDelArray}?api_key=d1566b6a7005fc1288c0cf8495a15e2e&language=en-US`)
+            .then(response => response.json())
+            .then(info => {
+                peliculas.push(info);
+                this.setState({
+                    favoritos: peliculas
+                })
+            })
+            .catch(err => console.log(err)) 
+            })
+
+            console.log(peliculas);
+
         }
     }
 
@@ -25,7 +42,12 @@ class MoviesFavs extends Component {
         return(
             <React.Fragment>
                 <h2>Favoritos</h2>
-                <ul></ul>
+                <ul>
+                    {
+                        this.state.favoritos.map((unaPeli, i) => <li key={unaPeli.title + i}><MovieCard title={unaPeli.title} img={'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/' + unaPeli.poster_path} info={unaPeli.overview} id={unaPeli.id}/></li> )
+                    }
+                    
+                </ul>
             </React.Fragment>
         )
     }
