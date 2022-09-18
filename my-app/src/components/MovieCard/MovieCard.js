@@ -27,7 +27,7 @@ class MovieCard extends Component {
 
             if (favoritos.includes(this.props.id)) {
                 this.setState({
-                    favText: <i class="fa-regular fa-heart"></i>
+                    favText: <i class="fa-solid fa-xmark"></i>
                 })
             } else {
                 this.setState({
@@ -55,10 +55,15 @@ class MovieCard extends Component {
             this.setState({
                 favText: <i class="fa-regular fa-heart"></i>
             })
+
+            if (this.props.borrar) {
+                this.props.borrar(this.props.id)
+            }
+
         } else {
             favoritos.push(this.props.id);
             this.setState({
-                favText: <i class="fa-regular fa-heart"></i>
+                favText: <i class="fa-solid fa-xmark"></i>
             })
         }
 
@@ -69,7 +74,7 @@ class MovieCard extends Component {
     }
 
     render(){
-        return ( 
+          return ( 
                 <ul id="film">
                     <Link to={`/movie/detail/${this.props.id}`}>
                         <li className="movieTitle">
@@ -99,7 +104,7 @@ class MovieCard extends Component {
                     </div>
                     
                 </ul>
-        )
+        )  
     }
 }
 

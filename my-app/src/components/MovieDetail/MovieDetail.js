@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './MovieDetail.css'
+import Loader from '../Loader/Loader';
 
 
 class MovieDetail extends Component {
@@ -10,7 +11,8 @@ class MovieDetail extends Component {
             dataMovie: {
                 genres: []
             },
-            favText: <i class="fa-regular fa-heart"></i>
+            favText: <i class="fa-regular fa-heart"></i>,
+            loading: true
         }
 
         console.log(props);
@@ -21,7 +23,8 @@ class MovieDetail extends Component {
         fetch(`https://api.themoviedb.org/3/movie/${this.state.id}?api_key=d1566b6a7005fc1288c0cf8495a15e2e&language=en-US`)
         .then(response => response.json())
         .then(info => this.setState({
-            dataMovie: info
+            dataMovie: info,
+            loading: false
         }, () => console.log(info)))
         .catch(err => console.log(err))
 
@@ -78,7 +81,14 @@ class MovieDetail extends Component {
     render(){
         return(
             <React.Fragment>
-                <div className='containter-detalle'>
+
+            {this.state.loading ? 
+            
+            <Loader/> 
+            
+            : 
+
+            <div className='containter-detalle'>
                         <img src={`https://image.tmdb.org/t/p/w342/${this.state.dataMovie.poster_path}`} alt={`Portada de la pelicula ${this.state.dataMovie.title}`} className='foto-detalle'/>
                         <div className='organizando-caja'>
                            <h1 className='titulo-detalle'>{this.state.dataMovie.title}</h1>
@@ -98,7 +108,8 @@ class MovieDetail extends Component {
                         </div>
                         
                         <button onClick={() => this.agregarQuitarFavs(this.state.id)}>{this.state.favText}</button>
-                </div>
+                </div>        
+            }
             </React.Fragment>
                 
         )
