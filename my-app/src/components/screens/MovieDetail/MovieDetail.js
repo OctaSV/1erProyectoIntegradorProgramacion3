@@ -94,12 +94,12 @@ class MovieDetail extends Component {
                             <h1 className='titulo-detalle'>{this.state.dataMovie.title}</h1>
                             <ul className='lista-detalle'>
                             <div className='items-detalle'>
-                                <li className='item-simple'>Rating: {this.state.dataMovie.vote_average}</li>
-                                <li className='item-simple'>Release date: {this.state.dataMovie.release_date}</li>
-                                <li className='item-simple'>Duration: {this.state.dataMovie.runtime} minutes</li>
+                                <li className='item-simple'>Rating: <p>{this.state.dataMovie.vote_average}</p></li>
+                                <li className='item-simple'>Release date: <p>{this.state.dataMovie.release_date}</p></li>
+                                <li className='item-simple'>Duration: <p>{this.state.dataMovie.runtime} minutes</p> </li>
                             </div>
                             <ul className='detalle-generos'>
-                                <p className='titulo-generos'>Genres:</p> {this.state.dataMovie.genres.map((generoUno, i) => <li className='item-genero' key = {generoUno.id + i}> {generoUno.name} </li>)}
+                                <p className='titulo-generos'>Genres:</p> {this.state.dataMovie.genres.map((generoUno, i) => <li className='item-genero' key = {generoUno.id + i}> <p>{generoUno.name} </p></li>)}
                             </ul>
                                 
                                 <li className='item-sinopsis'>{this.state.dataMovie.overview}</li>

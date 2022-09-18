@@ -71,7 +71,7 @@ class MoviesFavs extends Component {
                 this.state.favoritos.length === 0 ? 
 
                 <div className='container-favs'>
-                    <h1 className='titulo-no-fav'>¡There are no movies!</h1>
+                    <h1 className='titulo-no-fav'>There are no movies!</h1>
                     <p className='agrega-fav'>Start looking</p>
                 </div>
                 

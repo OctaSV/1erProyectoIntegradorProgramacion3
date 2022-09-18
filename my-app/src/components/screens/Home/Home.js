@@ -39,7 +39,7 @@ render() {
                             :
                                 <ul className="filmsBox">
                                     {
-                                        this.state.pelisBuscadas.map((unaPeli, idx) => <li key={unaPeli.title + idx}><MovieCard key={unaPeli.title + idx} title={unaPeli.title} img={'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/' + unaPeli.poster_path} info={unaPeli.overview}/></li>) 
+                                        this.state.pelisBuscadas.map((unaPeli, idx) => <li key={unaPeli.title + idx}><MovieCard key={unaPeli.title + idx} title={unaPeli.title} img={'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/' + unaPeli.poster_path} info={unaPeli.overview} id={unaPeli.id}/></li>) 
                                     }
                                 </ul>
                         }
