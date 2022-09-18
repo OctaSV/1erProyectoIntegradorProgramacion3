@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 
+import './MovieDetail.css'
+
+import Loader from '../../Loader/Loader';
 
 class MovieDetail extends Component {
     constructor(props){
@@ -9,15 +12,20 @@ class MovieDetail extends Component {
             dataMovie: {
                 genres: []
             },
-            favText: <i class="fa-regular fa-heart"></i>
+            favText: <i className="fa-regular fa-heart"></i>,
+            loading: true
         }
+
+        console.log(props);
+
     };
 
     componentDidMount(){
         fetch(`https://api.themoviedb.org/3/movie/${this.state.id}?api_key=d1566b6a7005fc1288c0cf8495a15e2e&language=en-US`)
         .then(response => response.json())
         .then(info => this.setState({
-            dataMovie: info
+            dataMovie: info,
+            loading: false
         }, () => console.log(info)))
         .catch(err => console.log(err))
 
@@ -30,7 +38,7 @@ class MovieDetail extends Component {
 
             if (favoritos.includes(this.state.id)) {
                 this.setState({
-                    favText: <i className="fa-solid fa-xmark"></i>
+                    favText: <i className="fa-solid fa-heart"></i>
                 })
             } else {
                 this.setState({
@@ -61,7 +69,7 @@ class MovieDetail extends Component {
         } else {
             favoritos.push(id);
             this.setState({
-                favText: <i className="fa-solid fa-xmark"></i>
+                favText: <i className="fa-solid fa-heart"></i>
             })
         }
 
@@ -73,21 +81,35 @@ class MovieDetail extends Component {
 
     render(){
         return(
-            <React.Fragment>
-                <h1>El titulo de la pelicula es: {this.state.dataMovie.title}</h1>
-                <img src={`https://image.tmdb.org/t/p/w342/${this.state.dataMovie.poster_path}`} alt={`Portada de la pelicula ${this.state.dataMovie.title}`}/>
-                <ul>
-                    <li>Rating: {this.state.dataMovie.vote_average}</li>
-                    <li>Fecha de estreno: {this.state.dataMovie.release_date}</li>
-                    <li>Duracion: {this.state.dataMovie.runtime} minutos</li>
-                    <li>Sinopsis: {this.state.dataMovie.overview}</li>
-                    <ul>
-                        Generos: {this.state.dataMovie.genres.map((generoUno, i) => <li key = {generoUno.id + i}> {generoUno.name} </li>)}
-                    </ul>
-                </ul>
-                <button className='buttonDetail' onClick={() => this.agregarQuitarFavs(this.state.id)}>{this.state.favText}</button>
-            </React.Fragment>
-            
+            <section className="body">
+                {this.state.loading ? 
+                
+                <Loader/> 
+                
+                : 
+
+                <div className='containter-detalle'>
+                            <img src={`https://image.tmdb.org/t/p/w342/${this.state.dataMovie.poster_path}`} alt={`Portada de la pelicula ${this.state.dataMovie.title}`} className='foto-detalle'/>
+                            <div className='organizando-caja'>
+                            <h1 className='titulo-detalle'>{this.state.dataMovie.title}</h1>
+                            <ul className='lista-detalle'>
+                            <div className='items-detalle'>
+                                <li className='item-simple'>Rating: {this.state.dataMovie.vote_average}</li>
+                                <li className='item-simple'>Release date: {this.state.dataMovie.release_date}</li>
+                                <li className='item-simple'>Duration: {this.state.dataMovie.runtime} minutes</li>
+                            </div>
+                            <ul className='detalle-generos'>
+                                <p className='titulo-generos'>Genres:</p> {this.state.dataMovie.genres.map((generoUno, i) => <li className='item-genero' key = {generoUno.id + i}> {generoUno.name} </li>)}
+                            </ul>
+                                
+                                <li className='item-sinopsis'>{this.state.dataMovie.overview}</li>
+                            </ul> 
+                            </div>
+                            
+                            <button className='button-detail-fav' onClick={() => this.agregarQuitarFavs(this.state.id)}>{this.state.favText}</button>
+                </div>        
+                }
+            </section>
         )
     }
 }

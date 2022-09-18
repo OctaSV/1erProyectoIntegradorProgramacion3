@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+
 import './MovieCard.css'
+
 import { Link } from 'react-router-dom'
 
 class MovieCard extends Component {
@@ -27,7 +29,7 @@ class MovieCard extends Component {
 
             if (favoritos.includes(this.props.id)) {
                 this.setState({
-                    favText: <i className="fa-regular fa-heart"></i>
+                    favText: <i className="fa-solid fa-heart"></i>
                 })
             } else {
                 this.setState({
@@ -53,21 +55,26 @@ class MovieCard extends Component {
             this.setState({
                 favText: <i className="fa-regular fa-heart"></i>
             })
+
+            if (this.props.borrar) {
+                this.props.borrar(this.props.id)
+            }
+
         } else {
             favoritos.push(this.props.id);
             this.setState({
-                favText: <i className="fa-regular fa-heart"></i>
+                favText: <i className="fa-solid fa-heart"></i>
             })
         }
 
         let favsToString = JSON.stringify(favoritos)
         localStorage.setItem('favoritos', favsToString)
 
-        console.log(localStorage);
+        // console.log(localStorage);
     }
 
     render(){
-        return ( 
+          return ( 
                 <ul id="film">
                     <Link to={`/movie/detail/${this.props.id}`}>
                         <li className="movieTitle">
@@ -76,7 +83,7 @@ class MovieCard extends Component {
                         {this.props.img.includes(null) ? 
                             <li>
                                 <div className="styleGiphy">
-                                    <iframe src="https://giphy.com/embed/21xxijoZGAS4zPpDT9" frameBorder="0" title="giphNoMovie"></iframe>
+                                    <iframe src="https://giphy.com/embed/21xxijoZGAS4zPpDT9" frameBorder="0" className="giphy-embed" title="giphNoMovie"></iframe>
                                 </div>
                             </li>
                         :
@@ -97,7 +104,7 @@ class MovieCard extends Component {
                     </div>
                     
                 </ul>
-        )
+        )  
     }
 }
 

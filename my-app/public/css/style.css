@@ -14,6 +14,7 @@ a {
 }
 body{
     margin: 0;
+    
 }
 
 
@@ -29,6 +30,7 @@ body{
     justify-content: space-between;
     min-height: 100vh;
     color: whitesmoke;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .body{
@@ -150,7 +152,6 @@ body section .filmsBox{
     footer {
         width: auto;
     }
-
     #film h3 {
         width: auto;
     }
@@ -187,5 +188,40 @@ body section .filmsBox{
     }
     .formAll{
         align-items: center;
+    }
+    .containter-detalle{
+        flex-direction: column;
+        align-items: center;
+    }
+    .containter-detalle div, .containter-detalle img{
+        margin: 10px 0px;
+    }
+    .organizando-caja{
+        flex-direction: column;
+    }
+    .organizando-caja h1{
+        height: 20vh;
+    }
+    .titulo-detalle{
+        margin: 0;
+        height: auto;
+    }
+    .organizando-caja ul{
+        width: 100%;
+    }
+    .foto-detalle{
+        width: 30%;
+        text-align: center;
+    }
+    .detalle-generos{
+        margin: 0;
+        width: 100%;
+    }
+    .item-genero{
+        text-align: center;
+        margin: 0;
+    }
+    .container-favs, .container-favs h1, .container-favs p {
+        width: 100%;
     }
 }

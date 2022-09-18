@@ -22,12 +22,11 @@
 .buttonMoreAll{
     color: whitesmoke;
     width: 100%;
-    background-color: rgba(245, 245, 245, 0.22);
+    background-color: rgba(245, 245, 245, 0.22); 
     border-color: whitesmoke;
     padding: 5px 12px;
     font-size: 20px;
     margin: 40px 2px;
-    border-radius: 5px;
     margin-top: 0px;
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
