@@ -144,39 +144,48 @@ body section .filmsBox{
 }
 
 @media (max-width: 400px) {
+    * {
+        width: min-content;
+    }
+    footer {
+        width: auto;
+    }
 
-* {
-    width: min-content;
-}
-footer {
-    width: auto;
-}
-#film h3 {
-    width: auto;
-}
-.botonL {
-    width: 20vh;
-}
-.titleFilmsBox h1 {
-    font-size: 30px;
-    font-family:Arial, Helvetica, sans-serif;
-}
-.botonH {
-    font-size: 20px;
-}
-a {
-    font-size: 14px;
-}
-
-.footerInfo li {
-    align-self: center;
-
-}
-.filmsBox li {
-display: table
-}
-.buttonscards {
-    align-self: center;
-}
-
+    #film h3 {
+        width: auto;
+    }
+    .botonL {
+        width: 20vh;
+    }
+    .buttonCardsB{
+        width: 100%;
+    }
+    .titleFilmsBox h1 {
+        font-size: 30px;
+        font-family:Arial, Helvetica, sans-serif;
+    }
+    .botonH {
+        font-size: 20px;
+    }
+    a {
+        font-size: 14px;
+    }
+    .footerInfo li {
+        width: 100%;
+        align-self: center;
+        margin: 0;
+    }
+    .footerInfo li p{
+        width: 100%;
+    }
+    .filmsBox li {
+    display: table
+    }
+    .buttonscards {
+        width: 100%;
+        align-self: center;
+    }
+    .formAll{
+        align-items: center;
+    }
 }

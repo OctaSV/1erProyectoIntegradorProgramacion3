@@ -30,11 +30,11 @@ class MovieDetail extends Component {
 
             if (favoritos.includes(this.state.id)) {
                 this.setState({
-                    favText: <i class="fa-solid fa-xmark"></i>
+                    favText: <i className="fa-solid fa-xmark"></i>
                 })
             } else {
                 this.setState({
-                    favText: <i class="fa-regular fa-heart"></i>
+                    favText: <i className="fa-regular fa-heart"></i>
                 })
             }
         }
@@ -56,12 +56,12 @@ class MovieDetail extends Component {
             let idAQuitar = favoritos.indexOf(id);
             favoritos.splice(idAQuitar, 1);
             this.setState({
-                favText: <i class="fa-regular fa-heart"></i>
+                favText: <i className="fa-regular fa-heart"></i>
             })
         } else {
             favoritos.push(id);
             this.setState({
-                favText: <i class="fa-solid fa-xmark"></i>
+                favText: <i className="fa-solid fa-xmark"></i>
             })
         }
 
@@ -85,7 +85,7 @@ class MovieDetail extends Component {
                         Generos: {this.state.dataMovie.genres.map((generoUno, i) => <li key = {generoUno.id + i}> {generoUno.name} </li>)}
                     </ul>
                 </ul>
-                <button onClick={() => this.agregarQuitarFavs(this.state.id)}>{this.state.favText}</button>
+                <button className='buttonDetail' onClick={() => this.agregarQuitarFavs(this.state.id)}>{this.state.favText}</button>
             </React.Fragment>
             
         )

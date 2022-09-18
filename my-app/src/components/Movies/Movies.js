@@ -113,12 +113,12 @@ class Movies extends Component {
                                                 </div>                        
                                                 <ul className="filmsBox">
                                                     {
-                                                        this.state.moviesUpComing.slice(0, this.state.filmsBillEnd).map((movie, idx) => <li key={movie.title + idx}><MovieCard title={movie.title} img={'https://image.tmdb.org/t/p/w300/' + movie.poster_path} info={movie.overview}/></li>)    
+                                                        this.state.moviesUpComing.slice(0, this.state.filmsBillEnd).map((movie, idx) => <li key={movie.title + idx}><MovieCard title={movie.title} img={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`} info={movie.overview}/></li>)    
                                                     }
                                                 </ul>                            
                                                 {
                                                     this.state.filmsBillEnd >= 20 ?
-                                                    <Link to="/all/billboard"><button className="buttonMore">ALL</button></Link>
+                                                    <Link to="/all/billboard"><button className="buttonMoreAll">ALL</button></Link>
                                                     :
                                                     <button className="buttonMore" type="button" onClick={()=> this.moreBill()}>MORE</button>
                                                 }                  
@@ -129,12 +129,12 @@ class Movies extends Component {
                                                 </div>
                                                 <ul className="filmsBox">
                                                     {
-                                                        this.state.moviesPopulars.slice(0, this.state.filmsPopularsEnd).map((movie, idx) => <li key={movie.title + idx} ><MovieCard title={movie.title} img={'https://image.tmdb.org/t/p/w300/' + movie.poster_path} info={movie.overview}/></li>)
+                                                        this.state.moviesPopulars.slice(0, this.state.filmsPopularsEnd).map((movie, idx) => <li key={movie.title + idx} ><MovieCard title={movie.title} img={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`} info={movie.overview}/></li>)
                                                     }
                                                 </ul>
                                                 {
                                                     this.state.filmsPopularsEnd >= 20 ?
-                                                    <Link to="/all/populars"><button className="buttonMore">ALL</button></Link>
+                                                    <Link to="/all/populars"><button className="buttonMoreAll">ALL</button></Link>
                                                     :
                                                     <button className="buttonMore" type="button" onClick={()=> this.morePopulars()}>MORE</button>
                                                 }
@@ -158,7 +158,7 @@ class Movies extends Component {
                                                     <>
                                                         <ul className="filmsBox">
                                                             {
-                                                                this.state.moviesUpComing.map((movie, idx) => <li key={movie.title + idx}><MovieCard title={movie.title} img={'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/' + movie.poster_path} info={movie.overview}/></li> )    
+                                                                this.state.moviesUpComing.map((movie, idx) => <li key={movie.title + idx}><MovieCard title={movie.title} img={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${movie.poster_path}`} info={movie.overview}/></li> )    
                                                             }
                                                         </ul>
                                                         <button className="buttonMore" type="button" onClick={()=> this.More()}>MORE</button>
@@ -181,7 +181,7 @@ class Movies extends Component {
                                                                 <>
                                                                     <ul className="filmsBox">
                                                                         {
-                                                                            this.state.moviesPopulars.map((movie, idx) => <li key={movie.title + idx}><MovieCard title={movie.title} img={'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/' + movie.poster_path} info={movie.overview}/></li> )    
+                                                                            this.state.moviesPopulars.map((movie, idx) => <li key={movie.title + idx}><MovieCard title={movie.title} img={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${movie.poster_path}`} info={movie.overview}/></li> )    
                                                                         }
                                                                     </ul>
                                                                     <button className="buttonMore" type="button" onClick={()=> this.More()}>MORE</button>

@@ -6,8 +6,8 @@ import Footer from './components/Footer/Footer'
 import {Route, Switch} from 'react-router-dom'
 import Home from './components/screens/Home/Home'
 import AllMovies from './components/screens/AllMovies/AllMovies'
-import MoviesFavs from './components/MoviesFavs/MoviesFavs'
-import MovieDetail from './components/MovieDetail/MovieDetail'
+import MoviesFavs from './components/screens/MoviesFavs/MoviesFavs';
+import MovieDetail from './components/screens/MovieDetail/MovieDetail';
 import NotFound from './components/screens/NotFound/NotFound'
 
 
