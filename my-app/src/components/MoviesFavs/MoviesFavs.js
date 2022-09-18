@@ -16,11 +16,11 @@ class MoviesFavs extends Component {
         let favoritos = [];
         let recuperoStorage = localStorage.getItem('favoritos')
 
-        console.log(recuperoStorage);
+        // console.log(recuperoStorage);
 
         if (recuperoStorage !== null) {
 
-            console.log('if');
+            // console.log('if');
 
             let storageToArray = JSON.parse(recuperoStorage)
             favoritos = storageToArray
@@ -48,10 +48,10 @@ class MoviesFavs extends Component {
             .catch(err => console.log(err)) 
             ))
 
-            // console.log(peliculas);
+            console.log(peliculas);
         } else {
 
-            console.log('else');
+            // console.log('else');
 
             this.setState({
                 loading: false

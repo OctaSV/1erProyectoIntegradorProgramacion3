@@ -11,7 +11,7 @@ class MovieDetail extends Component {
             dataMovie: {
                 genres: []
             },
-            favText: <i class="fa-regular fa-heart"></i>,
+            favText: <i className="fa-regular fa-heart"></i>,
             loading: true
         }
 
@@ -37,11 +37,11 @@ class MovieDetail extends Component {
 
             if (favoritos.includes(this.state.id)) {
                 this.setState({
-                    favText: <i class="fa-solid fa-xmark"></i>
+                    favText: <i className="fa-solid fa-heart"></i>
                 })
             } else {
                 this.setState({
-                    favText: <i class="fa-regular fa-heart"></i>
+                    favText: <i className="fa-regular fa-heart"></i>
                 })
             }
         }
@@ -63,12 +63,12 @@ class MovieDetail extends Component {
             let idAQuitar = favoritos.indexOf(id);
             favoritos.splice(idAQuitar, 1);
             this.setState({
-                favText: <i class="fa-regular fa-heart"></i>
+                favText: <i className="fa-regular fa-heart"></i>
             })
         } else {
             favoritos.push(id);
             this.setState({
-                favText: <i class="fa-solid fa-xmark"></i>
+                favText: <i className="fa-solid fa-heart"></i>
             })
         }
 
@@ -95,11 +95,11 @@ class MovieDetail extends Component {
                         <ul className='lista-detalle'>
                         <div className='items-detalle'>
                             <li className='item-simple'>Rating: <p>{this.state.dataMovie.vote_average}</p></li>
-                            <li className='item-simple'>Fecha de estreno: <p>{this.state.dataMovie.release_date}</p></li>
-                            <li className='item-simple'>Duracion: <p>{this.state.dataMovie.runtime} minutos</p></li>
+                            <li className='item-simple'>Release date: <p>{this.state.dataMovie.release_date}</p></li>
+                            <li className='item-simple'>Duration: <p>{this.state.dataMovie.runtime} minutos</p></li>
                         </div>
                         <ul className='detalle-generos'>
-                            <p className='titulo-generos'>Generos:</p> {this.state.dataMovie.genres.map((generoUno, i) => <li className='item-genero' key = {generoUno.id + i}> <p>{generoUno.name}</p> </li>)}
+                            <p className='titulo-generos'>Genres:</p> {this.state.dataMovie.genres.map((generoUno, i) => <li className='item-genero' key = {generoUno.id + i}> <p>{generoUno.name}</p> </li>)}
                         </ul>
                             
                             <li className='item-sinopsis'><p>{this.state.dataMovie.overview}</p></li>
@@ -107,7 +107,7 @@ class MovieDetail extends Component {
                         </ul> 
                         </div>
                         
-                        <button onClick={() => this.agregarQuitarFavs(this.state.id)}>{this.state.favText}</button>
+                        <button className='button-detail-fav' onClick={() => this.agregarQuitarFavs(this.state.id)}>{this.state.favText}</button>
                 </div>        
             }
             </React.Fragment>
