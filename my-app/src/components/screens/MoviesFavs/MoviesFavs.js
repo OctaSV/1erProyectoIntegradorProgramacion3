@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-import './MoviesFavs.css'
+import './MoviesFavs.css';
 
 import MovieCard from '../../MovieCard/MovieCard';
 import Loader from '../../Loader/Loader';
@@ -75,7 +75,6 @@ class MoviesFavs extends Component {
                     <p className='agrega-fav'>Start looking</p>
                 </div>
                 
-
                 :
 
                 <section className='body'>
@@ -92,4 +91,4 @@ class MoviesFavs extends Component {
     }
 }
 
-export default MoviesFavs
+export default MoviesFavs;

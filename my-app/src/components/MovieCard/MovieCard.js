@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
-import './MovieCard.css'
+import './MovieCard.css';
 
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 class MovieCard extends Component {
     constructor(props){
@@ -69,8 +69,6 @@ class MovieCard extends Component {
 
         let favsToString = JSON.stringify(favoritos)
         localStorage.setItem('favoritos', favsToString)
-
-        // console.log(localStorage);
     }
 
     render(){
@@ -89,7 +87,6 @@ class MovieCard extends Component {
                         :
                             <li className="movieImg"><img alt="imgFilm" src={this.props.img}/></li>
                         }
-                        {/*<li><img alt="imgFilm" src={props.img !== null ? props.img : props}/></li>*/}             
                     </Link>
                     <div className="buttonscards">
                         {this.state.verDesc ? 

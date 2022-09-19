@@ -42,8 +42,6 @@ class Movies extends Component {
             .catch(error => console.log(error))
             })
         .catch(error => console.log(error))
-
-        console.log(this.state);
     }
 
     More() {
@@ -95,8 +93,6 @@ class Movies extends Component {
     }
 
     render () {
-        console.log(this.state);
-        console.log(this.props.busqueda)
         return(
             <React.Fragment>
                         {
@@ -150,7 +146,7 @@ class Movies extends Component {
                                             <section className="body">
                                                 <div className="formAll">
                                                     <h1 className="titleForm">BILLBOARD MOVIES</h1>
-                                                    <FormFilter movieFilter={(filteredText)=> this.movieFilter(filteredText)}/>
+                                                    <FormFilter hola={'hola'} movieFilter={(filteredText)=> this.movieFilter(filteredText)}/>
                                                 </div>
                                                 {this.state.moviesUpComing.length === 0 ?
                                                     <Loader/>
@@ -200,6 +196,5 @@ class Movies extends Component {
         )
     }
 } 
-
 
 export default Movies;

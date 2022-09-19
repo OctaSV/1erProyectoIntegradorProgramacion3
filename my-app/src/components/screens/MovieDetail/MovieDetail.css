@@ -2,7 +2,6 @@
     display: flex;
     flex-wrap: wrap;
     text-align: center;
-    flex-direction: row;
     height: 70%;
     min-height: 100%;
     width: 70%;
@@ -20,10 +19,7 @@
     font-size: 45px;
     text-align: center;
     width: 100%;
-    margin-left: 6px;
-    margin-bottom: 10%;
-    margin-top: 0px;
-    height: 0px;
+    margin: 0;
 }
 
 .foto-detalle{
@@ -35,7 +31,6 @@
     display: flex;
     flex-wrap: wrap;
     text-align: center;
-    flex-direction: row;
     justify-content: space-around;
     width: 100%;
     margin-bottom: 20px;
@@ -50,7 +45,6 @@
     display: flex;
     flex-wrap: wrap;
     text-align: center;
-    flex-direction: row;
     justify-content: center;
     width: 75%;
 }
@@ -59,20 +53,21 @@
     margin: 0;
 }
 
-.detalle-generos{
+.titulo-generos{
+    text-decoration: underline grey;
+    width: 100%;
+    margin: 0%;
     display: flex;
     flex-wrap: wrap;
-    text-align: center;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: center;
     margin-bottom: 20px;
+    margin-top: 40px;
 }
 
-.titulo-generos{
-    text-decoration:underline grey;
+.titulo-generos ul{
     width: 100%;
-    margin: 0%
+    display: flex;
+    justify-content: center;
 }
 
 .item-genero{

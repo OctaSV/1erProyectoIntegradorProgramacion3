@@ -10,7 +10,6 @@ import MoviesFavs from './components/screens/MoviesFavs/MoviesFavs';
 import MovieDetail from './components/screens/MovieDetail/MovieDetail';
 import NotFound from './components/screens/NotFound/NotFound'
 
-
 function App() {
   return (
     <React.Fragment>

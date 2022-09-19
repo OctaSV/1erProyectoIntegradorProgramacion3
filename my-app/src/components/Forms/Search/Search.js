@@ -15,7 +15,7 @@ class Search extends Component{
 
     guardarDatos(evento){
         this.setState({
-          value: evento.target.value,  
+         value: evento.target.value,  
         })
     }
 

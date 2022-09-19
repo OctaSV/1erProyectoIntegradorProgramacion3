@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-import './MovieDetail.css'
+import './MovieDetail.css';
 
 import Loader from '../../Loader/Loader';
 
@@ -15,10 +15,7 @@ class MovieDetail extends Component {
             favText: <i className="fa-regular fa-heart"></i>,
             loading: true
         }
-
-        console.log(props);
-
-    };
+    }
 
     componentDidMount(){
         fetch(`https://api.themoviedb.org/3/movie/${this.state.id}?api_key=d1566b6a7005fc1288c0cf8495a15e2e&language=en-US`)
@@ -49,8 +46,6 @@ class MovieDetail extends Component {
     }
 
     agregarQuitarFavs(id){
-        // console.log('agregando y quitando');
-
         let favoritos = [];
         let recuperoStorage = localStorage.getItem('favoritos');
 
@@ -94,14 +89,13 @@ class MovieDetail extends Component {
                             <h1 className='titulo-detalle'>{this.state.dataMovie.title}</h1>
                             <ul className='lista-detalle'>
                             <div className='items-detalle'>
-                                <li className='item-simple'>Rating: <p>{this.state.dataMovie.vote_average}</p></li>
-                                <li className='item-simple'>Release date: <p>{this.state.dataMovie.release_date}</p></li>
-                                <li className='item-simple'>Duration: <p>{this.state.dataMovie.runtime} minutes</p> </li>
+                                <li className='item-simple'>Rating <br/><br/>{this.state.dataMovie.vote_average}</li>
+                                <li className='item-simple'>Release date <br/><br/>{this.state.dataMovie.release_date}</li>
+                                <li className='item-simple'>Duration <br/><br/>{this.state.dataMovie.runtime} minutes</li>
                             </div>
                             <ul className='detalle-generos'>
-                                <p className='titulo-generos'>Genres:</p> {this.state.dataMovie.genres.map((generoUno, i) => <li className='item-genero' key = {generoUno.id + i}> <p>{generoUno.name} </p></li>)}
+                                <li className='titulo-generos'>Genres <ul>{this.state.dataMovie.genres.map((generoUno, i) => <li className='item-genero' key = {generoUno.id + i}> <br></br> {generoUno.name} </li>)}</ul></li>
                             </ul>
-                                
                                 <li className='item-sinopsis'>{this.state.dataMovie.overview}</li>
                             </ul> 
                             </div>
@@ -114,4 +108,4 @@ class MovieDetail extends Component {
     }
 }
 
-export default MovieDetail
+export default MovieDetail;

@@ -198,13 +198,14 @@ body section .filmsBox{
     }
     .organizando-caja{
         flex-direction: column;
+        height: 110vh;
     }
     .organizando-caja h1{
-        height: 20vh;
+        height: 40vh;
     }
     .titulo-detalle{
         margin: 0;
-        height: auto;
+        height: 50vh;
     }
     .organizando-caja ul{
         width: 100%;
@@ -213,15 +214,29 @@ body section .filmsBox{
         width: 30%;
         text-align: center;
     }
-    .detalle-generos{
+    .titulo-generos{
+        display: flex;
+        flex-wrap: wrap;
+        display: flex;
+        flex-wrap: wrap;
         margin: 0;
         width: 100%;
     }
+    .titulo-generos p{
+        width: 25%;
+    }
     .item-genero{
         text-align: center;
+        width: 100%;
         margin: 0;
     }
     .container-favs, .container-favs h1, .container-favs p {
         width: 100%;
+    }
+    .button-detail-fav{
+        width: 100%;
+    }
+    .notFound{
+        align-items: center;
     }
 }

@@ -4,7 +4,7 @@ import './Home.css';
 
 import Search from '../../Forms/Search/Search.js';
 import MovieCard from "../../MovieCard/MovieCard";
-import Movies from '../../Movies/Movies'
+import Movies from '../../Movies/Movies';
 
 class Home extends Component{
     constructor(){
